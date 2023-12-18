@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title>Your Tiket</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <script>
+      function tiket() {
+        var tujuan = document.myform.tujuan.value;
+        if (tujuan == "Jakarta") {
+          var harga_tiket = 100000;
+        } else if (tujuan == "Cirebon") {
+          var harga_tiket = 150000;
+        } else if (tujuan == "Tasikmalaya") {
+          var harga_tiket = 200000;
+        } else {
+          var harga_tiket = 0;
+        }
+        document.myform.harga_tiket.value = harga_tiket;
+
+        var jumlah_tiket = document.myform.jumlah_tiket.value;
+        var sub_total = harga_tiket * jumlah_tiket;
+        document.myform.sub_total.value = sub_total;
+
+        var member = document.myform.member.value;
+        if (member == "Yes") {
+          var diskon = 0.1 * sub_total;
+        } else {
+          var diskon = 0;
+        }
+        document.myform.diskon.value = diskon;
+
+        var total_bayar = sub_total - diskon;
+        document.myform.total_bayar.value = total_bayar;
+      }
+    </script>
+    <body>
+      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="#">Javascript Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bmi.html">BMI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="crud.html">CRUD</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tiket.html">TIKET</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <center>
+        <img src="banner.jpg" width="100%" />
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+              <form name="myform">
+                <br /><input placeholder="Nama pemesan" name="nama_pemesan" class="form-control" /> <br /><input placeholder="Tujuan (Jakarta, Cirebon, Tasikmalaya)" name="tujuan" class="form-control" /> <br /><input
+                  placeholder="Jumlah Tiket"
+                  name="jumlah_tiket"
+                  class="form-control"
+                />
+                <br /><input placeholder="Member(Yes/No)" name="member" class="form-control" /> <br /><input type="button" value="Hitung" class="btn btn-success btn-sm" onclick="tiket()" />
+                <input type="reset" class="btn btn-info btn-sm" />
+                <br />
+                <br />
+                <input placeholder="Harga Tiket" name="harga_tiket" class="form-control" readonly /> <br />
+                <input placeholder="Sub Total" name="sub_total" class="form-control" readonly /> <br />
+                <input placeholder="Diskon" name="diskon" class="form-control" readonly /> <br />
+                <input placeholder="Total Bayar" name="total_bayar" class="form-control" readonly />
+              </form>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+        </div>
+        <br />
+        <b>&copy; Copyright: Portfolio By ADP | 2023</b>
+      </center>
+    </body>
+  </head>
+</html>

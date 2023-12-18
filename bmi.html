@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta />
+    <title>BMI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <script>
+      function rumus_bmi() {
+        var berat = document.myform.berat.value;
+        var tinggi = document.myform.tinggi.value;
+        var bmi = berat / ((tinggi / 100) * (tinggi / 100));
+        document.myform.bmi.value = bmi;
+        if (bmi >= 0 && bmi < 18.5) {
+          document.myform.tipe.value = "Anda adalah tipe kurus";
+        } else if (bmi >= 18.5 && bmi < 25) {
+          document.myform.tipe.value = "Anda adalah tipe normal";
+        } else if (bmi >= 25 && bmi < 30) {
+          document.myform.tipe.value = "Anda adalah tipe gemuk";
+        } else if (bmi >= 30) {
+          document.myform.tipe.value = "Anda adalah tipe obesitas";
+        } else {
+          document.myform.tipe.value = "Inputan yang anda masukkan salah";
+        }
+      }
+    </script>
+    <body>
+      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="#">Javascript Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bmi.html">BMI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="crud.html">CRUD</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tiket.html">TIKET</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <center>
+        <img src="banner.jpg" width="100%" />
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+              <form name="myform">
+                <br /><input placeholder="Berat Badan (kg)" class="form-control" name="berat" /> <br /><input placeholder="Tinggi Badan (cm)" class="form-control" name="tinggi" /> <br /><input
+                  type="Button"
+                  class="btn-info btn-sm"
+                  value="Hitung"
+                  onclick="rumus_bmi()"
+                />
+                <input type="reset" class="btn btn-danger btn-sm" />
+                <br />
+                <br /><input placeholder="Nilai BMI" class="form-control" name="bmi" readonly /> <br /><input placeholder="Tipe Badan" class="form-control" name="tipe" readonly />
+              </form>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+        </div>
+        <br />
+        <b>&copy; Copyright: Portfolio By ADP | 2023</b>
+      </center>
+    </body>
+  </head>
+</html>
